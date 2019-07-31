@@ -16,20 +16,23 @@ const { width, height } = Dimensions.get("window");
 
 export default class ListRender extends Component {
   renderItem = ({ item }) => (
-    <View style={styles.renderitem}>
-      <Image
-        source={{
-          uri: `https://image.tmdb.org/t/p/original/${item.poster_path}`
-        }}
-        style={styles.renderImage}
-      />
-      <View style={styles.renderTextContainer}>
-        <Text style={styles.renderText}>{item.title}</Text>
-        <Text style={styles.renderVoteText}>
-          <Icon name="md-star" size={22} color="#D4AF37" /> {item.vote_average}
-        </Text>
+    <TouchableOpacity onPress={this.props.itemPress}>
+      <View style={styles.renderitem}>
+        <Image
+          source={{
+            uri: `https://image.tmdb.org/t/p/original/${item.poster_path}`
+          }}
+          style={styles.renderImage}
+        />
+        <View style={styles.renderTextContainer}>
+          <Text style={styles.renderText}>{item.title}</Text>
+          <Text style={styles.renderVoteText}>
+            <Icon name="md-star" size={22} color="#D4AF37" />{" "}
+            {item.vote_average}
+          </Text>
+        </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 
   render() {
@@ -50,27 +53,10 @@ export default class ListRender extends Component {
             </Text>
           </View>
           <TouchableOpacity
-            style={{
-              borderColor: "#B5A89E",
-              borderRadius: 10,
-              borderWidth: 0.5,
-              height: 20,
-              width: 60,
-              marginTop: 8,
-              paddingBottom: 2
-            }}
+            style={styles.buttonStyle}
+            onPress={this.props.press}
           >
-            <Text
-              style={{
-                fontSize: 13,
-                fontWeight: "400",
-                color: "#B5A89E",
-                textAlign: "center",
-                textAlignVertical: "center"
-              }}
-            >
-              See More
-            </Text>
+            <Text style={styles.buttonTextStyle}>See More</Text>
           </TouchableOpacity>
         </View>
         <View style={{ marginVertical: 5 }}>
@@ -139,5 +125,21 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     paddingBottom: 5,
     paddingHorizontal: 0
+  },
+  buttonStyle: {
+    borderColor: "#B5A89E",
+    borderRadius: 10,
+    borderWidth: 0.5,
+    height: 20,
+    width: 60,
+    marginTop: 8,
+    paddingBottom: 2
+  },
+  buttonTextStyle: {
+    fontSize: 13,
+    fontWeight: "400",
+    color: "#B5A89E",
+    textAlign: "center",
+    textAlignVertical: "center"
   }
 });
