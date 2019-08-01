@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
     color: "#070707",
     flex: 3,
     fontSize: 18,
-    fontWeight: "400",
+    fontWeight: "500",
     marginTop: 5,
     textAlign: "left",
     width: width - 180
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
     color: "#070707",
     flex: 1,
     fontSize: 20,
-    fontWeight: "400",
+    fontWeight: "500",
     marginTop: 5,
     textAlign: "left"
   },
